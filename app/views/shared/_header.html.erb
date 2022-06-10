@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to current_user.email.upcase, rooms_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Create Group",create_group_rooms_path,class:"nav-link active" , data: {
+		turbo_method: :get,
+		turbo_confirm: "Do You Want To Create A New Group ?",
+	}%>
+        </li>
+       <li class="nav-item">
+       <%= link_to "LogOut",session_destroy_path ,class:"nav-link active"%>
+       </li>
+      </ul>
+
+
+      <%= form_with url: searchs_path,method: :get, class: "d-flex" do |form| %>
+          <%= form.search_field :search, class:"form-control me-2", required:true,value: params[:search],minlength:5,autocomplete: :off%>
+          <%= form.submit "Search", class:"btn btn-outline-success"%>
+      <% end %>
+    </div>
+  </div>
+</nav>

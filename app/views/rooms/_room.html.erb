@@ -1,0 +1,7 @@
+<div class="alert alert-primary" role="alert">
+  <% if room.one_to_one? %>
+    <%= link_to person_email(room), room_path(room.room_number),style: "font-size: larger" %>
+  <% else %>
+    <%= link_to "#{room.room_number} - Group", room_path(room.room_number),style: "font-size: larger" %>
+  <% end %>
+</div>

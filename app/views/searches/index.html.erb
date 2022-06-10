@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <% if @searches.any? %>
+        <% @searches.each do |search| %>
+    
+            <div class="alert alert-primary" role="alert">
+                <%= link_to search.email, personal_rooms_path(person_email: search.email ) %>
+            </div>
+
+        <% end %>
+    <% else %>
+    <center><h1>No Match Found</h1></center>
+    <% end %>
+</div>
